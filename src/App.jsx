@@ -1,35 +1,84 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import Pricecard from "./components/Pricecard";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  let data = [
+    {
+      plan: "FREE",
+      price: 0,
+      user: "Single User",
+      isUser: true,
+      storage: "5 GB",
+      isStorage: true,
+      publicProjects: "Unlimited Public Projects",
+      isPublicProjects: true,
+      communityAccess: "Community Access",
+      isCommunityAccess: true,
+      privateProjects: "Unlimited Private Projects",
+      isPrivateProjects: false,
+      phoneSupport: "Dedicated Phone Support",
+      isPhoneSupport: false,
+      subDomain: "Free Subdomain",
+      isSubDomain: false,
+      reports: "Monthly Status Reports",
+      isReports: false,
+    },
+    {
+      plan: "PLUS",
+      price: 9,
+      user: "5 Users",
+      isUser: true,
+      storage: "50 GB",
+      isStorage: true,
+      publicProjects: "Unlimited Public Projects",
+      isPublicProjects: true,
+      communityAccess: "Community Access",
+      isCommunityAccess: true,
+      privateProjects: "Unlimited Private Projects",
+      isPrivateProjects: true,
+      phoneSupport: "Dedicated Phone Support",
+      isPhoneSupport: true,
+      subDomain: "Free Subdomain",
+      isSubDomain: true,
+      reports: "Monthly Status Reports",
+      isReports: false,
+    },
+    {
+      plan: "PRO",
+      price: 49,
+      user: "Unlimited Users",
+      isUser: true,
+      storage: "150 GB",
+      isStorage: true,
+      publicProjects: "Unlimited Public Projects",
+      isPublicProjects: true,
+      communityAccess: "Community Access",
+      isCommunityAccess: true,
+      privateProjects: "Unlimited Private Projects",
+      isPrivateProjects: true,
+      phoneSupport: "Dedicated Phone Support",
+      isPhoneSupport: true,
+      subDomain: "Free Subdomains",
+      isSubDomain: true,
+      reports: "Monthly Status Reports",
+      isReports: true,
+    },
+  ];
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <section className="pricing py-5">
+        <div className="container">
+          <div className="row">
+            {
+              data.map((e,i) => {
+                return <Pricecard price={e} key={i} />
+              })
+            }
+          </div>
+        </div>
+      </section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
